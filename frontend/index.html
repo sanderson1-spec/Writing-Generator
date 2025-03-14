@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Writing Prompt Generator</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Creative Writing Prompt Generator</h1>
+        </header>
+        
+        <main>
+            <div class="tabs">
+                <button class="tab-button active" data-tab="setup">Setup</button>
+                <button class="tab-button" data-tab="prompts">Prompts</button>
+            </div>
+            
+            <div class="tab-content">
+                <!-- Character & Settings Setup Tab -->
+                <div class="tab-pane active" id="setup-tab">
+                    <div class="card">
+                        <h2>Character Definition</h2>
+                        <form id="character-form">
+                            <div class="form-group">
+                                <label for="name">Character Name</label>
+                                <input type="text" id="name" name="name" placeholder="Enter character name">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="description">Character Description</label>
+                                <textarea id="description" name="description" placeholder="Describe your character, their background, etc."></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="personality">Personality</label>
+                                <textarea id="personality" name="personality" placeholder="Describe the character's personality traits, quirks, etc."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="primary-button">Save Character</button>
+                        </form>
+                    </div>
+                    
+                    <div class="card">
+                        <h2>Theme Settings</h2>
+                        <form id="theme-form">
+                            <div class="form-group">
+                                <label for="theme-name">Theme Name</label>
+                                <input type="text" id="theme-name" name="theme_name" placeholder="Enter theme name">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="theme-description">Theme Description</label>
+                                <textarea id="theme-description" name="theme_description" placeholder="Describe the theme, setting, genre, etc."></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="example-message">Example Message</label>
+                                <textarea id="example-message" name="example_message" placeholder="Provide an example message to guide the tone and style"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="primary-button">Save Theme</button>
+                        </form>
+                    </div>
+                    
+                    <div class="card">
+                        <h2>Prompt Settings</h2>
+                        <form id="settings-form">
+                            <div class="form-group">
+                                <label for="session-duration">Session Duration (minutes)</label>
+                                <input type="number" id="session-duration" name="session_duration" min="1" max="60" value="15">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="prompt-interval">Minimum Prompt Interval (seconds)</label>
+                                <input type="number" id="prompt-interval" name="min_prompt_interval" min="5" max="300" value="60">
+                                <small>The LLM may adjust timing based on context, but will never go below this minimum interval.</small>
+                            </div>
+                            
+                            <button type="submit" class="primary-button">Save Settings</button>
+                        </form>
+                    </div>
+                    
+                    <button id="start-session" class="action-button">Start Prompt Session</button>
+                </div>
+                
+                <!-- Prompts Display Tab -->
+                <div class="tab-pane" id="prompts-tab">
+                    <div class="session-controls">
+                        <div id="session-info">
+                            <p>Session not started</p>
+                        </div>
+                        <button id="stop-session" class="action-button" disabled>Stop Session</button>
+                    </div>
+                    
+                    <div id="prompt-container">
+                        <div class="prompt-empty-state">
+                            <p>Start a session to receive prompts</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>Creative Writing Prompt Generator | Academic Project</p>
+        </footer>
+    </div>
+    
+    <script src="js/main.js"></script>
+    <script src="js/character_form.js"></script>
+    <script src="js/prompt_display.js"></script>
+</body>
+</html>
